@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dava Hannas Putra | Portfolio Portal</title>
+    <meta
+      name="description"
+      content="Portfolio portal for Dava Hannas Putra, Information Systems student, lead developer, and teaching assistant."
+    />
+    <link rel="stylesheet" href="styles.css?v=2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Dava Hannas Putra portfolio home">
+        <span class="brand-mark">D</span>
+        <span>Dava Hannas Putra</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#summary">Summary</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero-section" id="summary" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Information Systems Student | Lead Developer | Teaching Assistant</p>
+          <h1 id="hero-title">Dava Hannas Putra</h1>
+          <p class="hero-text">
+            Sixth-semester Information Systems student at Universitas Indonesia
+            specializing in enterprise software development. Currently serving as
+            Lead Developer for a custom mini-ERP system built for a manufacturing
+            business, with hands-on responsibility for system analysis and
+            design, backend development using Django, external API integration,
+            and production deployment infrastructure.
+          </p>
+          <div class="hero-actions" aria-label="Contact and profile links">
+            <a class="button primary" href="mailto:davahsp@gmail.com">Email</a>
+            <a class="button" href="tel:+6282124024280">Call</a>
+            <a class="button" href="Dava_Hannas_Putra_ATS_CV.docx" target="_blank" rel="noreferrer">Resume</a>
+          </div>
+        </div>
+
+        <aside class="profile-panel" aria-label="Profile snapshot">
+          <div class="profile-card featured">
+            <span>Current Focus</span>
+            <strong>Enterprise software development</strong>
+          </div>
+          <div class="profile-card">
+            <span>Location</span>
+            <strong>Bogor, West Java 16118</strong>
+          </div>
+          <div class="profile-card">
+            <span>Email</span>
+            <strong>davahsp@gmail.com</strong>
+          </div>
+          <div class="profile-card">
+            <span>Phone</span>
+            <strong>+62 821 2402 4280</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section-block summary-strip" aria-label="Professional summary">
+        <p>
+          Proven ability to translate complex business requirements across
+          multiple domains into scalable, maintainable software products.
+        </p>
+        <div class="metric-row" aria-label="Portfolio metrics">
+          <span><strong>4</strong> Featured projects</span>
+          <span><strong>20+</strong> Technical capabilities</span>
+          <span><strong>2027</strong> Expected graduation</span>
+        </div>
+      </section>
+
+      <section class="section-block education-section" id="education" aria-labelledby="education-title">
+        <div>
+          <p class="eyebrow">Education</p>
+          <h2 id="education-title">University of Indonesia</h2>
+          <p>
+            Bachelor of Science, Information Systems. Expected graduation: 2027.
+            Depok, West Java.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-block" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading title-only">
+          <h2 id="projects-title">Portfolio Projects</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-content">
+              <p class="project-type">Lead Developer</p>
+              <h3>Garam Enterprise &amp; Analytics Resource (GEAR)</h3>
+              <p>
+                Led a small development team under University of Indonesia
+                supervision to build a custom ERP system with permission-based
+                access for a manufacturing and salt distribution company in
+                Lampung, Indonesia, used by over 30 employees.
+              </p>
+              <ul class="proof-points">
+                <li>Designed procurement, inventory, sales, finance, and analytics modules.</li>
+                <li>Digitized paper-based workflows, reduced manual errors, and provided automated audit trails.</li>
+                <li>Implemented a permission-based WhatsApp chatbot integrated with Gemini LLM API.</li>
+                <li>Deployed and maintained production on Linux, DigitalOcean, Gunicorn, Nginx, and PostgreSQL.</li>
+              </ul>
+              <div class="tag-list" aria-label="Skills used on GEAR">
+                <span>Django</span>
+                <span>PostgreSQL</span>
+                <span>Linux</span>
+                <span>Nginx</span>
+                <span>Gemini API</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-content">
+              <p class="project-type">Hobby Project</p>
+              <h3>Mini Enterprise System (MINES)</h3>
+              <p>
+                Developed an independent ERP platform inspired by GEAR to explore
+                enterprise system architecture and business process modeling.
+              </p>
+              <ul class="proof-points">
+                <li>Redesigned core workflows and domain models for broader business use cases.</li>
+                <li>Explored architecture patterns across multiple industries.</li>
+              </ul>
+              <div class="tag-list" aria-label="Skills used on MINES">
+                <span>ERP</span>
+                <span>System Design</span>
+                <span>Domain Modeling</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-content">
+              <p class="project-type">Campus Course Project</p>
+              <h3>TravelAPAP</h3>
+              <p>
+                Developed a microservice-based tour package management system
+                enabling vendors to create packages by integrating flights,
+                accommodations, and tourist attractions from partner services.
+              </p>
+              <ul class="proof-points">
+                <li>Implemented customer-facing browsing and ordering workflows.</li>
+                <li>Built an authentication and authorization microservice using OAuth 2.0 and JWT.</li>
+                <li>Implemented SSO for authentication persistence across multiple microservices.</li>
+              </ul>
+              <div class="tag-list" aria-label="Skills used on TravelAPAP">
+                <span>Microservices</span>
+                <span>OAuth 2.0</span>
+                <span>JWT</span>
+                <span>SSO</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-content">
+              <p class="project-type">Hobby Project</p>
+              <h3>Silver Screen</h3>
+              <p>
+                Developed a cinema ticketing and operations management system
+                supporting both customer-facing and internal business workflows
+                with role-based access.
+              </p>
+              <ul class="proof-points">
+                <li>Implemented online ticket booking, seat selection, and order management.</li>
+                <li>Integrated a payment gateway interface through a payment gateway stub.</li>
+                <li>Designed POS workflows for onsite staff ticket transactions.</li>
+                <li>Built showtime scheduling and master data management for studios and movies.</li>
+              </ul>
+              <div class="tag-list" aria-label="Skills used on Silver Screen">
+                <span>Django</span>
+                <span>Role Access</span>
+                <span>POS</span>
+                <span>Payments</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading title-only">
+          <h2 id="skills-title">Technical Skills</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Programming</h3>
+            <ul>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>Java</li>
+              <li>Go</li>
+              <li>SQL</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Frameworks</h3>
+            <ul>
+              <li>Django</li>
+              <li>Spring Boot</li>
+              <li>Vue.js</li>
+              <li>React</li>
+              <li>HTMX</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Infrastructure</h3>
+            <ul>
+              <li>PostgreSQL</li>
+              <li>Linux</li>
+              <li>Nginx</li>
+              <li>Gunicorn</li>
+              <li>DigitalOcean</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Concepts</h3>
+            <ul>
+              <li>System Design &amp; Analysis</li>
+              <li>Software Architecture</li>
+              <li>REST API</li>
+              <li>Authentication &amp; Authorization</li>
+              <li>OAuth 2.0</li>
+              <li>JWT</li>
+              <li>Microservices</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading title-only">
+          <h2 id="experience-title">Professional Experience</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div>
+              <p class="project-type">August 2025 - Present</p>
+              <h3>Undergraduate Teaching Assistant</h3>
+              <p>University of Indonesia | Depok</p>
+            </div>
+            <ul class="proof-points">
+              <li>Taught Statistics, Probability, Linear Algebra, and Calculus II to undergraduate students.</li>
+              <li>Delivered lectures and led classroom sessions in the lecturer's absence.</li>
+              <li>Conducted weekly tutorial and consultation sessions.</li>
+              <li>Developed weekly quizzes, assignments, and examination problems.</li>
+              <li>Graded and evaluated assignments, quizzes, and examinations.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div>
+              <p class="project-type">November 2023 - Present</p>
+              <h3>Private Tutor</h3>
+              <p>Freelance / Part-time</p>
+            </div>
+            <ul class="proof-points">
+              <li>Served as a long-term paid private tutor for two students for over two years.</li>
+              <li>Taught university-level programming, database, architecture, systems, accounting, and enterprise fundamentals courses.</li>
+              <li>Provided academic mentoring, problem-solving guidance, and exam preparation support.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Let's Connect</h2>
+          <p>
+            Available for software development, enterprise system, backend,
+            teaching, and technical collaboration opportunities.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a class="button primary" href="mailto:davahsp@gmail.com">davahsp@gmail.com</a>
+          <a class="button" href="tel:+6282124024280">+62 821 2402 4280</a>
+          <a class="button" href="Dava_Hannas_Putra_ATS_CV.docx" target="_blank" rel="noreferrer">Resume</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
