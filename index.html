@@ -8,7 +8,14 @@
       name="description"
       content="Portfolio portal for Dava Hannas Putra, Information Systems student, lead developer, and teaching assistant."
     />
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <script>
+      try {
+        if (localStorage.getItem("portfolio-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="styles.css?v=5" />
   </head>
   <body>
     <header class="site-header">
@@ -16,14 +23,34 @@
         <span class="brand-mark">D</span>
         <span>Dava Hannas Putra</span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#summary">Summary</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-controls">
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#summary">Summary</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          aria-pressed="false"
+          title="Switch to dark mode"
+        >
+          <span class="theme-toggle-track" aria-hidden="true">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3.5" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24">
+              <path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z" />
+            </svg>
+            <span class="theme-toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
     </header>
 
     <main id="top">
@@ -37,7 +64,9 @@
             Lead Developer for a custom mini-ERP system built for a manufacturing
             business, with hands-on responsibility for system analysis and
             design, backend development using Django, external API integration,
-            and production deployment infrastructure.
+            and production deployment infrastructure. Proven ability to translate
+            complex business requirements across multiple domains into scalable,
+            maintainable software products.
           </p>
           <div class="hero-actions" aria-label="Contact and profile links">
             <a class="button primary" href="mailto:davahsp@gmail.com">Email</a>
@@ -68,12 +97,12 @@
 
       <section class="section-block summary-strip" aria-label="Professional summary">
         <p>
-          Proven ability to translate complex business requirements across
-          multiple domains into scalable, maintainable software products.
+          Building practical software that turns complex, cross-functional
+          business requirements into maintainable digital workflows.
         </p>
         <div class="metric-row" aria-label="Portfolio metrics">
-          <span><strong>4</strong> Featured projects</span>
-          <span><strong>20+</strong> Technical capabilities</span>
+          <span><strong>3</strong> Featured projects</span>
+          <span><strong>29+</strong> Technical capabilities</span>
           <span><strong>2027</strong> Expected graduation</span>
         </div>
       </section>
@@ -81,7 +110,14 @@
       <section class="section-block education-section" id="education" aria-labelledby="education-title">
         <div>
           <p class="eyebrow">Education</p>
-          <h2 id="education-title">University of Indonesia</h2>
+          <div class="education-heading">
+            <h2 id="education-title">University of Indonesia</h2>
+            <img
+              class="education-logo"
+              src="assets/ui.png"
+              alt="Universitas Indonesia logo"
+            />
+          </div>
           <p>
             Bachelor of Science, Information Systems. Expected graduation: 2027.
             Depok, West Java.
@@ -95,7 +131,7 @@
         </div>
 
         <div class="project-grid">
-          <article class="project-card">
+          <a class="project-card" href="#" aria-label="Open GEAR project">
             <div class="project-content">
               <p class="project-type">Lead Developer</p>
               <h3>Garam Enterprise &amp; Analytics Resource (GEAR)</h3>
@@ -108,40 +144,21 @@
               <ul class="proof-points">
                 <li>Designed procurement, inventory, sales, finance, and analytics modules.</li>
                 <li>Digitized paper-based workflows, reduced manual errors, and provided automated audit trails.</li>
-                <li>Implemented a permission-based WhatsApp chatbot integrated with Gemini LLM API.</li>
+                <li>Implemented account recovery using the Resend email service.</li>
+                <li>Built a permission-based WhatsApp chatbot using Twilio, webhooks, and the Gemini LLM API.</li>
                 <li>Deployed and maintained production on Linux, DigitalOcean, Gunicorn, Nginx, and PostgreSQL.</li>
               </ul>
               <div class="tag-list" aria-label="Skills used on GEAR">
                 <span>Django</span>
                 <span>PostgreSQL</span>
-                <span>Linux</span>
-                <span>Nginx</span>
+                <span>Twilio API</span>
                 <span>Gemini API</span>
+                <span>Resend API</span>
               </div>
             </div>
-          </article>
+          </a>
 
-          <article class="project-card">
-            <div class="project-content">
-              <p class="project-type">Hobby Project</p>
-              <h3>Mini Enterprise System (MINES)</h3>
-              <p>
-                Developed an independent ERP platform inspired by GEAR to explore
-                enterprise system architecture and business process modeling.
-              </p>
-              <ul class="proof-points">
-                <li>Redesigned core workflows and domain models for broader business use cases.</li>
-                <li>Explored architecture patterns across multiple industries.</li>
-              </ul>
-              <div class="tag-list" aria-label="Skills used on MINES">
-                <span>ERP</span>
-                <span>System Design</span>
-                <span>Domain Modeling</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
+          <a class="project-card" href="#" aria-label="Open TravelAPAP project">
             <div class="project-content">
               <p class="project-type">Campus Course Project</p>
               <h3>TravelAPAP</h3>
@@ -154,17 +171,23 @@
                 <li>Implemented customer-facing browsing and ordering workflows.</li>
                 <li>Built an authentication and authorization microservice using OAuth 2.0 and JWT.</li>
                 <li>Implemented SSO for authentication persistence across multiple microservices.</li>
+                <li>Deployed the microservices using AWS EC2, Docker, and Kubernetes.</li>
               </ul>
               <div class="tag-list" aria-label="Skills used on TravelAPAP">
                 <span>Microservices</span>
                 <span>OAuth 2.0</span>
                 <span>JWT</span>
                 <span>SSO</span>
+                <span>Kubernetes</span>
               </div>
             </div>
-          </article>
+          </a>
 
-          <article class="project-card">
+          <a
+            class="project-card"
+            href="#"
+            aria-label="Open Silver Screen project"
+          >
             <div class="project-content">
               <p class="project-type">Hobby Project</p>
               <h3>Silver Screen</h3>
@@ -178,15 +201,17 @@
                 <li>Integrated a payment gateway interface through a payment gateway stub.</li>
                 <li>Designed POS workflows for onsite staff ticket transactions.</li>
                 <li>Built showtime scheduling and master data management for studios and movies.</li>
+                <li>Deployed and maintained production on Linux, DigitalOcean, Gunicorn, Nginx, and PostgreSQL.</li>
               </ul>
               <div class="tag-list" aria-label="Skills used on Silver Screen">
                 <span>Django</span>
-                <span>Role Access</span>
+                <span>PostgreSQL</span>
                 <span>POS</span>
                 <span>Payments</span>
+                <span>DigitalOcean</span>
               </div>
             </div>
-          </article>
+          </a>
         </div>
       </section>
 
@@ -197,7 +222,14 @@
 
         <div class="skills-grid">
           <article class="skill-card">
-            <h3>Programming</h3>
+            <div class="skill-card-heading">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+                </svg>
+              </span>
+              <h3>Programming</h3>
+            </div>
             <ul>
               <li>Python</li>
               <li>JavaScript</li>
@@ -208,7 +240,15 @@
             </ul>
           </article>
           <article class="skill-card">
-            <h3>Frameworks</h3>
+            <div class="skill-card-heading">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m12 3 9 5-9 5-9-5 9-5Z" />
+                  <path d="m3 12 9 5 9-5M3 16l9 5 9-5" />
+                </svg>
+              </span>
+              <h3>Frameworks</h3>
+            </div>
             <ul>
               <li>Django</li>
               <li>Spring Boot</li>
@@ -218,17 +258,69 @@
             </ul>
           </article>
           <article class="skill-card">
-            <h3>Infrastructure</h3>
+            <div class="skill-card-heading">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <ellipse cx="12" cy="5" rx="8" ry="3" />
+                  <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
+                  <path d="M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" />
+                </svg>
+              </span>
+              <h3>Databases</h3>
+            </div>
             <ul>
               <li>PostgreSQL</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-heading">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="7" rx="2" />
+                  <rect x="3" y="14" width="18" height="7" rx="2" />
+                  <path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6" />
+                </svg>
+              </span>
+              <h3>Infrastructure</h3>
+            </div>
+            <ul>
               <li>Linux</li>
               <li>Nginx</li>
               <li>Gunicorn</li>
               <li>DigitalOcean</li>
+              <li>AWS EC2</li>
+              <li>Docker</li>
+              <li>Kubernetes</li>
             </ul>
           </article>
           <article class="skill-card">
-            <h3>Concepts</h3>
+            <div class="skill-card-heading">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 12h8M12 8v8" />
+                  <path d="M7 4H5a2 2 0 0 0-2 2v3M17 4h2a2 2 0 0 1 2 2v3M7 20H5a2 2 0 0 1-2-2v-3M17 20h2a2 2 0 0 0 2-2v-3" />
+                </svg>
+              </span>
+              <h3>API &amp; Integrations</h3>
+            </div>
+            <ul>
+              <li>Twilio API</li>
+              <li>Gemini API</li>
+              <li>Resend API</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-heading">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="5" r="2.5" />
+                  <circle cx="5" cy="19" r="2.5" />
+                  <circle cx="19" cy="19" r="2.5" />
+                  <path d="m10.8 7.2-4.6 9.6M13.2 7.2l4.6 9.6M7.5 19h9" />
+                </svg>
+              </span>
+              <h3>Concepts</h3>
+            </div>
             <ul>
               <li>System Design &amp; Analysis</li>
               <li>Software Architecture</li>
@@ -275,6 +367,18 @@
               <li>Provided academic mentoring, problem-solving guidance, and exam preparation support.</li>
             </ul>
           </article>
+
+          <article class="timeline-item">
+            <div>
+              <p class="project-type">September 2024 - Present</p>
+              <h3>Frontend Developer</h3>
+              <p>GSJA Betlehem | Bogor</p>
+            </div>
+            <ul class="proof-points">
+              <li>Develop and maintain the frontend of the church's official website.</li>
+              <li>Implement website features and interface improvements based on designs and requirements provided by the UI/UX team.</li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -294,5 +398,6 @@
         </div>
       </section>
     </main>
+    <script src="theme.js?v=1"></script>
   </body>
 </html>
