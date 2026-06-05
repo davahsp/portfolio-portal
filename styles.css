@@ -186,13 +186,10 @@ a {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   flex: 0 0 auto;
   width: 34px;
   height: 34px;
-  place-items: center;
-  color: var(--primary-text);
-  background: var(--primary-bg);
   border-radius: 8px;
 }
 
@@ -427,6 +424,31 @@ h3 {
   border-color: var(--primary-bg);
 }
 
+.button-with-icon {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-icon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.button-icon-svg {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
 .profile-panel {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -540,7 +562,7 @@ h3 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -751,6 +773,14 @@ h3 {
   grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
   gap: 24px;
   padding: 22px;
+}
+
+.experience-details {
+  min-width: 0;
+}
+
+.experience-details .proof-points {
+  margin-top: 0;
 }
 
 .education-section {
