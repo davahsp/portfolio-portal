@@ -132,11 +132,27 @@
         </div>
 
         <div class="timeline">
-          <article class="timeline-item">
+          <article class="timeline-item project-card gear-card">
             <div>
               <p class="project-type">January 2026 - May 2026</p>
               <h3>Lead Developer</h3>
               <p>GEAR - Garam Enterprise &amp; Analytics Resource | University of Indonesia</p>
+              <div class="gear-actions">
+                <a class="button gear-btn" href="gear.html">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                  Case study
+                </a>
+                <span class="gear-btn gear-btn--disabled" aria-disabled="true" tabindex="-1">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S9 17.44 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                  GitHub
+                  <span class="gear-btn-tooltip">Repository is private. Sharing is restricted by client agreement.</span>
+                </span>
+                <span class="gear-btn gear-btn--disabled" aria-disabled="true" tabindex="-1">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                  Live demo
+                  <span class="gear-btn-tooltip">Live deployment is restricted by client agreement.</span>
+                </span>
+              </div>
             </div>
             <div class="experience-details">
               <ul class="proof-points">
@@ -193,6 +209,12 @@
               <p class="project-type">September 2024 - Present</p>
               <h3>Frontend Developer (Volunteer)</h3>
               <p>GSJA Betlehem | Bogor</p>
+              <div class="gear-actions" style="margin-top: 14px;">
+                <a class="button gear-btn" href="https://gsjabetlehem.or.id/" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                  Live deployment
+                </a>
+              </div>
             </div>
             <div class="experience-details">
               <ul class="proof-points">
@@ -215,7 +237,7 @@
         </div>
 
         <div class="project-grid">
-          <a class="project-card" href="#" aria-label="Open TravelAPAP project">
+          <article class="project-card gear-card">
             <div class="project-content">
               <p class="project-type">Campus Course Project</p>
               <h3>TravelAPAP</h3>
@@ -239,14 +261,32 @@
                 <span>Docker</span>
                 <span>Kubernetes</span>
               </div>
+              <div class="gear-actions" style="margin-top: 16px;">
+                <span
+                  class="gear-btn gear-btn--disabled"
+                  aria-disabled="true"
+                  tabindex="-1"
+                  title="Case study is not available for now. I plan to restore it after redocumenting the work and recovering the project context from this year-old course project."
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                  Case study
+                  <span class="gear-btn-tooltip">Case study is not available for now. I plan to restore it after redocumenting the work and recovering the project context from this year-old course project.</span>
+                </span>
+                <span class="gear-btn gear-btn--disabled" aria-disabled="true" tabindex="-1">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22.65 14.39-1.07 3.28a2 2 0 0 1-1.9 1.38H4.32a2 2 0 0 1-1.9-1.38l-1.07-3.28a1 1 0 0 1 .37-1.11L12 5.83l10.28 7.45a1 1 0 0 1 .37 1.11Z"/><path d="m12 5.83-3.5 10.73h7L12 5.83ZM4.32 19.05l-1.5-4.59L12 5.83M19.68 19.05l1.5-4.59L12 5.83"/></svg>
+                  GitLab
+                  <span class="gear-btn-tooltip">Repository is hosted on the campus internal GitLab and is not publicly accessible.</span>
+                </span>
+                <span class="gear-btn gear-btn--disabled" aria-disabled="true" tabindex="-1">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                  Live demo
+                  <span class="gear-btn-tooltip">This project is no longer hosted. It was a course project completed over a year ago.</span>
+                </span>
+              </div>
             </div>
-          </a>
+          </article>
 
-          <a
-            class="project-card"
-            href="#"
-            aria-label="Open Silver Screen project"
-          >
+          <article class="project-card gear-card">
             <div class="project-content">
               <p class="project-type">Hobby Project</p>
               <h3>Silver Screen</h3>
@@ -270,8 +310,22 @@
                 <span>Gunicorn</span>
                 <span>Nginx</span>
               </div>
+              <div class="gear-actions" style="margin-top: 16px;">
+                <a class="button gear-btn" href="silverscreen.html">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                  Case study
+                </a>
+                <a class="button gear-btn" href="#">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S9 17.44 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                  GitHub
+                </a>
+                <a class="button gear-btn" href="#">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                  Live demo
+                </a>
+              </div>
             </div>
-          </a>
+          </article>
         </div>
       </section>
 

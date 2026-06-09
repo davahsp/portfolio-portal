@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GEAR Case Study | Dava Hannas Putra</title>
+    <meta
+      name="description"
+      content="Technical case study for GEAR (Garam Enterprise &amp; Analytics Resource), a custom mini-ERP for a salt manufacturing and distribution company."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/d-mark.svg?v=3" />
+    <script>
+      try {
+        if (localStorage.getItem("portfolio-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="project-detail.css?v=4" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Dava Hannas Putra portfolio home">
+        <img class="brand-mark" src="assets/d-mark.svg?v=3" alt="" />
+        <span>Dava Hannas Putra</span>
+      </a>
+      <div class="header-controls">
+        <nav class="site-nav" aria-label="Page navigation">
+          <a href="index.html#experience">Main page</a>
+          <a href="#summary">Summary</a>
+          <a href="#use-cases">Use Cases</a>
+          <a href="#modules">Modules</a>
+          <a href="#infrastructure">Infrastructure</a>
+          <a href="#chatbot">Chatbot</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          aria-pressed="false"
+          title="Switch to dark mode"
+        >
+          <span class="theme-toggle-track" aria-hidden="true">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3.5" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24">
+              <path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z" />
+            </svg>
+            <span class="theme-toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <main class="cs-main">
+
+      <div class="cs-notice" role="note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+        <p>Project information, diagrams, and screenshots are shared with client approval. Sensitive business data has been removed or anonymized.</p>
+      </div>
+
+      <!-- ── Page header ──────────────────────────────────────────── -->
+      <div class="cs-header">
+
+        <h1>GEAR</h1>
+        <p class="cs-subtitle">Garam Enterprise &amp; Analytics Resource</p>
+        <dl class="cs-meta">
+          <div><dt>Role</dt><dd>Lead Developer</dd></div>
+          <div><dt>Timeline</dt><dd>Jan – May 2026</dd></div>
+          <div><dt>Team</dt><dd>5 Developers</dd></div>
+          <div><dt>Users</dt><dd>30+ Employees</dd></div>
+        </dl>
+      </div>
+
+      <!-- ── High-level description ───────────────────────────────── -->
+      <section class="cs-section" id="summary">
+        <p class="cs-lead">
+          GEAR is a custom web-based mini-ERP developed as a capstone project under Universitas Indonesia
+          supervision and deployed to a real Indonesian salt manufacturing and distribution business.
+          It replaces paper-based ledgers and disconnected spreadsheets with a unified digital operational
+           backbone covering procurement, inventory, daily production, sales, finance, analytics, pricing,
+           and a WhatsApp chatbot. The entire system runs on a production Linux VPS.
+        </p>
+        <p class="cs-body">
+           The system is structured around document workflows. Users create operational documents: purchase
+           orders, daily production records, sales orders, finance entries, and delivery notes. Services then
+           produce side effects such as stock movements, event logs, finance entries, and partner statistics.
+          All modules share the same database, role-based permission layer, and event audit log. Business logic
+          is isolated in a service layer so it stays consistent whether invoked from the web UI, an HTMX
+          fragment, or a chatbot command.
+        </p>
+      </section>
+
+      <!-- ── Use Case Diagram ─────────────────────────────────────── -->
+      <section class="cs-section" id="use-cases">
+        <h2>Use Cases</h2>
+        <p class="cs-body">
+          The system has four primary roles: <strong>Sales</strong>, <strong>Pengawas Gudang</strong>
+          (Warehouse), <strong>Keuangan</strong> (Finance), and <strong>Owner</strong>. The diagram below maps
+          each role to the operations it is permitted to trigger.
+        </p>
+        <figure class="cs-figure">
+          <img
+            src="assets/gear/diagrams/gear-ucd.png"
+            alt="GEAR use case diagram showing roles and permitted operations"
+            loading="lazy"
+          />
+          <figcaption>Use Case Diagram for Garam Enterprise &amp; Analytics Resource</figcaption>
+        </figure>
+      </section>
+
+      <!-- ── Module Cards ─────────────────────────────────────────── -->
+      <section class="cs-section" id="modules">
+        <h2>Modules</h2>
+        <p class="cs-body">
+          GEAR is organized into seven application modules, each owning a distinct business domain.
+        </p>
+        <div class="cs-module-grid">
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Sales</span>
+              <h3>Sales Orders &amp; Delivery</h3>
+            </div>
+            <p>
+              Manages the full sales order lifecycle across eight states: Draft → Awaiting Payment →
+              Payment Confirmation → Stock Validation → Ready to Ship → In Shipping → Completed (or Cancelled).
+              Product stock is deducted only at stock validation. A versioned delivery note is created
+              automatically at that point and can be revised until the order ships. On completion, customer
+              transaction statistics are updated.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Procurement</span>
+              <h3>Purchase Orders</h3>
+            </div>
+            <p>
+              Handles raw material purchasing through a three-step state machine: Pending → Received →
+              Payment Validated. Receiving the order creates raw-material stock movements and increments stock.
+              Payment validation generates an expense finance entry and updates supplier transaction statistics.
+              Voiding at any stage reverses all created stock movements and finance entries.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Inventory</span>
+              <h3>Stock, Production &amp; BOM</h3>
+            </div>
+            <p>
+              Tracks raw-material and finished-product stock through signed movement rows. Daily production
+              records use a versioned snapshot pattern: each revision first reverses movements from the
+              previous snapshot, then replays the new quantities. Bill of Materials lines define the
+              raw-material consumption required per product batch. Stock opname (adjustment) creates a
+              corrective movement for the delta between physical and system stock.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Finance</span>
+              <h3>Entries &amp; Ledger</h3>
+            </div>
+            <p>
+              Centralizes all income and expense entries. Entries generated by sales payment confirmation and
+              purchase payment validation are system-owned and cannot be manually edited. Corrections are
+              applied through document cancellation or void, which creates linked reversal entries. Manual entries
+              support soft deletion and restoration. Entry categories are also soft-deletable, except for
+              protected system categories.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Analytics</span>
+              <h3>Reporting Dashboards</h3>
+            </div>
+            <p>
+              Read-only dashboards over operational data: sales performance by rep (frequency, revenue, AOV);
+              finance P&amp;L by week, month, or year with PDF export via ReportLab; raw-material and
+              finished-product stock time series; customer loyalty segmentation (New, Loyal, At Risk,
+              Moderate, Inactive); and sales lifecycle funnel metrics.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Pricing</span>
+              <h3>Price Recommendation</h3>
+            </div>
+            <p>
+              Recommends product selling prices using BOM cost plus a configurable margin percentage. The base
+              cost is computed from each BOM line's quantity multiplied by the weighted-average unit price of
+              that raw material across finalized purchase orders. A worksheet UI and a JSON API allow managers
+              to review and push recommended prices directly to product records.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Auth</span>
+              <h3>Accounts &amp; Permissions</h3>
+            </div>
+            <p>
+              Uses a custom <code>Account</code> model with phone number as the login identifier instead of
+              username. Role-based access is enforced through Django groups (Sales, Warehouse, Finance) with
+              Owner represented by <code>is_superuser</code>. Supports account creation, deactivation,
+              restoration, self-service password change, and password reset via email (Anymail/Resend).
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Chatbot</span>
+              <h3>Chatbot Interface</h3>
+            </div>
+            <p>
+              Provides two access interfaces: a web chat UI and WhatsApp via Twilio. Both channels share the
+              same service layer and session management, with access scoped to the authenticated user's
+              Django permissions.
+            </p>
+            <p>
+              Sessions operate in two modes. In <strong>default mode</strong>, the bot responds to a set of
+              pre-defined commands (<code>stok jadi</code>, <code>create so</code>, <code>create po</code>,
+              <code>daftar so</code>, <code>detail so</code>, <code>stok mentah</code>) with deterministic
+              outputs routed through the same service functions used by the web UI. Each command is
+              permission-checked before execution.
+            </p>
+            <p>
+              Sending <code>ai</code> switches the session to <strong>AI mode</strong>, where free-form
+              messages are forwarded to the Gemini LLM. The system prompt is assembled per-request from a
+              base ERP context plus module-specific context files for only the modules the user can access,
+              with live DB snapshots injected when the user has the relevant permissions. The conversation
+              history (each exchange of user message and LLM reply) is stored as temporary context in the
+              session using a bounded data structure to prevent unbounded memory growth. Sending
+              <code>exit</code> or idling for 30 minutes clears the session and returns to default mode.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ── Infrastructure ───────────────────────────────────────── -->
+      <section class="cs-section" id="infrastructure">
+        <h2>Infrastructure Architecture</h2>
+        <p class="cs-body">
+          Production traffic enters through the VPS public IP after DNS resolution. Nginx listens on ports 80
+          and 443, handles HTTPS termination via Certbot, serves <code>/media/</code> and static files
+          (via Whitenoise) directly, and forwards Django requests to Gunicorn over a local Unix socket.
+           The Django application connects to a PostgreSQL database on <code>localhost:5432</code>.
+           Three external integrations are isolated at the application edge: Resend API for email,
+           Gemini API for AI responses, and Twilio for WhatsApp.
+        </p>
+        <figure class="cs-figure">
+          <img
+            src="assets/gear/diagrams/gear-infra-arch.png"
+            alt="GEAR infrastructure architecture diagram"
+            loading="lazy"
+          />
+          <figcaption>Infrastructure Architecture: production deployment topology</figcaption>
+        </figure>
+      </section>
+
+      <!-- ── Chatbot Architecture ─────────────────────────────────── -->
+      <section class="cs-section" id="chatbot">
+        <h2>Chatbot Architecture</h2>
+        <p class="cs-body">
+          The chatbot is accessible through two channels: WhatsApp via Twilio and a web JSON endpoint.
+          Both channels share the same service layer and session management.
+        </p>
+        <p class="cs-body">
+          Incoming messages from either channel are forwarded to <code>chatbot.service.py</code>, which
+          identifies the channel, fetches the user's session from the Session Manager, and routes the message
+          to the Command Dispatcher. Processed replies are returned to the service, which sends them back
+          through the originating channel: JSON for web users, or via Twilio for WhatsApp users.
+        </p>
+        <p class="cs-body">
+          Sessions operate in two modes. In <strong>command mode</strong> (default), the dispatcher matches
+          known commands (<code>stok jadi</code>, <code>create so</code>, <code>create po</code>, etc.),
+          checks the user's permissions, and routes to the appropriate handler. Each handler calls the same
+          service functions used by the web UI. Sending <code>ai</code> switches to <strong>LLM mode</strong>, where
+          free-form messages are passed to the Gemini API with a permission-scoped system prompt.
+          Sessions reset to command mode after 30 minutes of inactivity.
+        </p>
+        <figure class="cs-figure">
+          <img
+            src="assets/gear/diagrams/gear-chatbot-arch.png"
+            alt="GEAR chatbot architecture showing two entry points and shared service layer"
+            loading="lazy"
+          />
+          <figcaption>Chatbot Architecture: dual-channel entry with shared service layer</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <img
+            src="assets/gear/diagrams/gear-chatbot-command-dispatcher-arch.png"
+            alt="GEAR chatbot command dispatcher architecture diagram"
+            loading="lazy"
+          />
+          <figcaption>Command Dispatcher: internal routing detail</figcaption>
+        </figure>
+      </section>
+
+
+    </main>
+
+    <script src="theme.js?v=1"></script>
+  </body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silver Screen Case Study | Dava Hannas Putra</title>
+    <meta
+      name="description"
+      content="Case study for Silver Screen, a Django-based cinema booking and operational system with customer booking, staff POS, scheduling, manager operations, and a payment gateway stub."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/d-mark.svg?v=3" />
+    <script>
+      try {
+        if (localStorage.getItem("portfolio-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="project-detail.css?v=4" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Dava Hannas Putra portfolio home">
+        <img class="brand-mark" src="assets/d-mark.svg?v=3" alt="" />
+        <span>Dava Hannas Putra</span>
+      </a>
+      <div class="header-controls">
+        <nav class="site-nav" aria-label="Page navigation">
+          <a href="index.html#projects">Main page</a>
+          <a href="#summary">Summary</a>
+          <a href="#scope">Scope</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#workflows">Workflows</a>
+          <a href="#payment-gateway">Payment Gateway</a>
+          <a href="#domain-model">Domain Model</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          aria-pressed="false"
+          title="Switch to dark mode"
+        >
+          <span class="theme-toggle-track" aria-hidden="true">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3.5" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24">
+              <path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 0 1 0 20.4 15.2Z" />
+            </svg>
+            <span class="theme-toggle-thumb"></span>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <main class="cs-main">
+      <div class="cs-notice" role="note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+        <p>This is a first-pass case study. The project is documented from the implemented MVP, SDS coverage, and available architecture diagrams.</p>
+      </div>
+
+      <div class="cs-header">
+        <h1>Silver Screen</h1>
+        <p class="cs-subtitle">Cinema booking and operational system built with Django</p>
+        <dl class="cs-meta">
+          <div><dt>Role</dt><dd>Developer</dd></div>
+          <div><dt>Type</dt><dd>Hobby Project</dd></div>
+          <div><dt>Stack</dt><dd>Django, HTMX</dd></div>
+          <div><dt>Scope</dt><dd>Booking, POS, Scheduling</dd></div>
+        </dl>
+      </div>
+
+      <section class="cs-section" id="summary">
+        <h2>Summary</h2>
+        <p class="cs-lead">
+          Silver Screen is a cinema booking and operations system covering the full path from customer movie
+          discovery to ticket payment, POS order creation, showtime scheduling, and manager-controlled master
+          data. The MVP is implemented with Django class-based views, service-layer business logic, Django
+          templates, HTMX fragment swaps, and raw CSS.
+        </p>
+        <p class="cs-body">
+          The system supports four role groups: customer, staff counter, scheduler, and cinema manager. Each
+          role has a separate operational surface while sharing the same core domain model for movies, studios,
+          seats, showtimes, orders, tickets, products, add-ons, charges, and payments.
+        </p>
+      </section>
+
+      <section class="cs-section" id="scope">
+        <h2>Product Scope</h2>
+        <p class="cs-body">
+          The product was built around cinema operations where online booking and onsite counter workflows need
+          to share seat availability, ticket lifecycle rules, and order records without mixing their state
+          transitions.
+        </p>
+        <div class="cs-module-grid">
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Customer</span>
+              <h3>Online Booking</h3>
+            </div>
+            <p>
+              Customers browse active movies, choose a showtime, select seats, add optional products, review the
+              order, pay through the stub gateway, view orders, print tickets, and cancel eligible bookings.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Staff</span>
+              <h3>Counter POS</h3>
+            </div>
+            <p>
+              Staff create onsite orders only after payment, attach an optional customer account, print tickets
+              immediately, view all orders, cancel eligible online orders, and complete pending refunds.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Scheduler</span>
+              <h3>Showtime Planning</h3>
+            </div>
+            <p>
+              Scheduler users create jam tayang through a phased visual wizard. Runtime and end time are derived
+              from the selected movie, and server-side validation blocks overlaps and past start times.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Manager</span>
+              <h3>Master Data</h3>
+            </div>
+            <p>
+              Managers maintain movies, products, studios, and immutable studio seat layouts. Inactive movies
+              and products are hidden from customer booking and POS add-on selection.
+            </p>
+          </article>
+        </div>
+
+        <figure class="cs-figure cs-figure--compact">
+          <img
+            src="assets/silverscreen/diagrams/use-case.png"
+            alt="Silver Screen use case diagram showing manager, scheduler, staff counter, and customer workflows"
+            loading="lazy"
+          />
+          <figcaption>Use Case Diagram: role-based Silver Screen feature scope</figcaption>
+        </figure>
+      </section>
+
+      <section class="cs-section" id="architecture">
+        <h2>Architecture</h2>
+        <p class="cs-body">
+          Silver Screen uses Django apps split by responsibility. The <code>cinema</code> app owns the core
+          domain models, forms, routes, templates, services, admin registration, tests, and demo seed command.
+          The <code>stub_payment_gateway</code> app owns the provider-side dummy gateway model, gateway pages,
+          issue-payment endpoint, payment simulation views, and expiration behavior.
+        </p>
+        <p class="cs-body">
+          Business rules are intentionally kept in services instead of fat models. Online booking, payment
+          callbacks, cancellation, onsite POS creation, scheduling, studio layout generation, and ID generation
+          are coordinated through dedicated service modules so the class-based views remain focused on routing,
+          permissions, forms, and template rendering.
+        </p>
+      </section>
+
+      <section class="cs-section" id="workflows">
+        <h2>Core Workflows</h2>
+        <div class="cs-module-grid">
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Online</span>
+              <h3>Customer Booking</h3>
+            </div>
+            <p>
+              The customer flow has four phases: seat selection, add-ons, review, and payment. Order drafts stay
+              in the session until review confirmation. Confirming creates a pending online order, held tickets,
+              an unpaid payment, optional add-ons, and a service charge.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Onsite</span>
+              <h3>Counter Order</h3>
+            </div>
+            <p>
+              Staff POS does not create pending or held records. After the customer pays at the counter, the
+              system atomically creates a confirmed onsite order, paid payment, confirmed tickets, QR UUIDs,
+              add-ons, and charges.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Cancel</span>
+              <h3>Refund Logic</h3>
+            </div>
+            <p>
+              Unpaid online cancellations invalidate the provider-side gateway payment and release held seats.
+              Paid confirmed cancellations move payment to refund pending. Used tickets block cancellation.
+            </p>
+          </article>
+
+          <article class="cs-module-card">
+            <div class="cs-module-head">
+              <span class="cs-module-tag">Admission</span>
+              <h3>Ticket QR</h3>
+            </div>
+            <p>
+              Each confirmed ticket receives a hard-to-guess QR UUID. The scanner is outside this Django app and
+              is expected to share the same database, read the QR UUID, and mark the ticket as used.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cs-section" id="payment-gateway">
+        <h2>Payment Gateway Stub</h2>
+        <p class="cs-body">
+          The MVP does not integrate with a real payment processor. Instead, it includes a dedicated payment
+          gateway stub that models provider-side payment issuance, virtual-account assignment, success
+          simulation, expiration simulation, and callback delivery back into Silver Screen.
+        </p>
+        <p class="cs-body">
+          The internal <code>Payment</code> record is owned by Silver Screen, while the provider-side
+          <code>GatewayPayment</code> record is owned by the stub gateway. Final payment and order states are
+          sourced only from callbacks. Countdown displays in the app and gateway are visual; the authoritative
+          expiration behavior belongs to the gateway worker.
+        </p>
+        <figure class="cs-figure">
+          <img
+            src="assets/silverscreen/diagrams/payment-gateway-stub-interaction-sequence.png"
+            alt="Sequence diagram showing Silver Screen payment issuance, gateway expiration worker, success callback, and expiration callback"
+            loading="lazy"
+          />
+          <figcaption>Payment Gateway Interaction: issuing, expiring, and confirming stub payments through callbacks</figcaption>
+        </figure>
+      </section>
+
+      <section class="cs-section" id="domain-model">
+        <h2>Domain Model</h2>
+        <p class="cs-body">
+          The domain model centers on movies, studio layouts, showtimes, orders, tickets, add-ons, charges, and
+          payments. Seat protection is enforced with a conditional uniqueness rule so a showtime and seat cannot
+          have more than one active ticket in <code>HELD</code>, <code>CONFIRMED</code>, or <code>USED</code>
+          state.
+        </p>
+        <p class="cs-body">
+          Online and onsite channels share the same order, ticket, and payment tables, but use different state
+          paths. Online orders start pending with held tickets and unpaid payments. Onsite POS orders are created
+          only after payment, so they enter the system already confirmed and paid.
+        </p>
+        <figure class="cs-figure">
+          <img
+            src="assets/silverscreen/diagrams/class.png"
+            alt="Silver Screen class diagram showing movies, studios, showtimes, seats, orders, tickets, products, charges, and payments"
+            loading="lazy"
+          />
+          <figcaption>Class Diagram: core Silver Screen domain entities and relationships</figcaption>
+        </figure>
+      </section>
+
+    </main>
+
+    <script src="theme.js?v=1"></script>
+  </body>
+</html>
