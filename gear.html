@@ -29,6 +29,7 @@
         <nav class="site-nav" aria-label="Page navigation">
           <a href="index.html#experience">Main page</a>
           <a href="#summary">Summary</a>
+          <a href="#showcase">Showcase</a>
           <a href="#use-cases">Use Cases</a>
           <a href="#modules">Modules</a>
           <a href="#infrastructure">Infrastructure</a>
@@ -59,7 +60,7 @@
 
       <div class="cs-notice" role="note">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
-        <p>Project information, diagrams, and screenshots are shared with client approval. Sensitive business data has been removed or anonymized.</p>
+        <p>Project information, diagrams, and screenshots are shared with client approval. Sensitive business data has been removed or anonymized, and the showcased interface is from the staging deployment.</p>
       </div>
 
       <!-- ── Page header ──────────────────────────────────────────── -->
@@ -92,6 +93,252 @@
           is isolated in a service layer so it stays consistent whether invoked from the web UI, an HTMX
           fragment, or a chatbot command.
         </p>
+      </section>
+
+      <!-- ── Interface Showcase ───────────────────────────────────── -->
+      <section class="cs-section" id="showcase">
+        <h2>Interface Showcase</h2>
+        <p class="cs-body">
+          Explore the interface of GEAR. Select a module below to view screenshots from the staging deployment with dummy data.
+        </p>
+
+        <div class="showcase-container">
+          <div class="showcase-tabs" role="tablist" aria-label="GEAR Interface Modules">
+            <button class="showcase-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-sales" id="tab-sales">
+              <svg class="tab-icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              Sales
+            </button>
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" aria-controls="panel-procurement" id="tab-procurement">
+              <svg class="tab-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              Procurement
+            </button>
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" aria-controls="panel-inventory" id="tab-inventory">
+              <svg class="tab-icon" viewBox="0 0 24 24"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><polygon points="12 22.08 12 12 3 6.92 3 17.08 12 22.08"></polygon><polygon points="12 12 21 6.92 21 17.08 12 22.08"></polygon><polygon points="12 2 21 6.92 12 12 3 6.92 12 2"></polygon><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              Inventory
+            </button>
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" aria-controls="panel-pricing" id="tab-pricing">
+              <svg class="tab-icon" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+              Pricing
+            </button>
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" aria-controls="panel-finance" id="tab-finance">
+              <svg class="tab-icon" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Finance &amp; Ledger
+            </button>
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" aria-controls="panel-web-chatbot" id="tab-web-chatbot">
+              <svg class="tab-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8.01" y2="16"></line><line x1="16" y1="16" x2="16.01" y2="16"></line></svg>
+              Web Chatbot
+            </button>
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" aria-controls="panel-whatsapp-chatbot" id="tab-whatsapp-chatbot">
+              <svg class="tab-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              WhatsApp Chatbot
+            </button>
+            <button class="showcase-tab-btn" role="tab" aria-selected="false" aria-controls="panel-admin" id="tab-admin">
+              <svg class="tab-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              Auth
+            </button>
+          </div>
+
+          <!-- Sales Panel -->
+          <div class="showcase-panel active" id="panel-sales" role="tabpanel" aria-labelledby="tab-sales">
+            <div class="screenshot-grid">
+              <figure class="screenshot-card">
+                <img src="assets/gear/sales/customers.png" alt="Customers Index page" loading="lazy" />
+                <figcaption>Customer directory listing all customers, with navigation to each customer detail page and quick-create drawer.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/sales/sales-index.png" alt="Sales Order dashboard" loading="lazy" />
+                <figcaption>Sales Order dashboard displaying order status tabs, date filters, and list of transactions.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/sales/create-so.png" alt="Create Sales Order form" loading="lazy" />
+                <figcaption>Create Sales Order form workspace facilitating customer selection, order date setting, itemized entry of product lines, and custom charges with live grand total calculation.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/sales/so-detail.png" alt="Sales Order detail page" loading="lazy" />
+                <figcaption>Sales Order details page showing customer info, items, status transition pipeline, and document action controls.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/sales/so-log.png" alt="Order event log history" loading="lazy" />
+                <figcaption>OrderEventLog panel displaying the audit history of status changes and user attributions.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/sales/sales-analytics.png" alt="Sales performance analytics dashboard" loading="lazy" />
+                <figcaption>Sales performance dashboard tracking total monthly revenue, sales versus direct channel contributions, and representative metrics (frequency, revenue, and average order value).</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/sales/customer-analytics.png" alt="Customer loyalty and retention analytics dashboard" loading="lazy" />
+                <figcaption>Customer loyalty and retention dashboard displaying RFM segmentation counts (loyal, moderate, at-risk, new, inactive), repeat order rate, and individual customer engagement statistics.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/sales/so-analytics.png" alt="Sales order analytics dashboard" loading="lazy" />
+                <figcaption>Sales order analytics dashboard visualizing average order lifecycle durations, shipment success/cancellation ratios, and product revenue distribution chart.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Procurement Panel -->
+          <div class="showcase-panel" id="panel-procurement" role="tabpanel" aria-labelledby="tab-procurement">
+            <div class="screenshot-grid">
+              <figure class="screenshot-card">
+                <img src="assets/gear/procurement/suppliers.png" alt="Suppliers Index page" loading="lazy" />
+                <figcaption>Supplier directory listing all suppliers, with navigation to each supplier detail page and quick-create drawer.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/procurement/procurement-index.png" alt="Purchase Order dashboard" loading="lazy" />
+                <figcaption>Purchase Order index displaying procurement status tabs, purchase totals, and supplier records.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/procurement/create-po.png" alt="Create Purchase Order form" loading="lazy" />
+                <figcaption>Create Purchase Order form workspace for selecting suppliers, specifying purchase dates, adding multiple raw material line items, and appending custom shipping fees.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/procurement/po-detail.png" alt="Purchase Order detail page" loading="lazy" />
+                <figcaption>Purchase Order details page showing supplier info, purchase date, lines, extra costs, and status actions.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/procurement/po-log.png" alt="Purchase Order event logs" loading="lazy" />
+                <figcaption>PurchaseOrderEventLog panel displaying chronological document history.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Inventory Panel -->
+          <div class="showcase-panel" id="panel-inventory" role="tabpanel" aria-labelledby="tab-inventory">
+            <div class="screenshot-grid">
+              <figure class="screenshot-card">
+                <img src="assets/gear/inventory/raw-materials-index.png" alt="Raw Materials list" loading="lazy" />
+                <figcaption>Raw Material index tracking safety stock thresholds and stock status (safe, low, out of stock).</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/inventory/product-index.png" alt="Finished Products list" loading="lazy" />
+                <figcaption>Finished Products catalog displaying sizes, current stock levels, and unit prices.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/inventory/product-detail.png" alt="Product detail page" loading="lazy" />
+                <figcaption>Product details page showing variant settings, stock movements ledger, and stock opname adjustments (also available for raw material).</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/inventory/product-movements.png" alt="Stock movements ledger" loading="lazy" />
+                <figcaption>Stock movements ledger displaying chronological additions and deductions labeled by source document (also available for raw material).</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/inventory/product-bom.png" alt="Product Bill of Materials" loading="lazy" />
+                <figcaption>BOMLine configuration specifying the raw material composition required per product batch.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/inventory/product-analytics.png" alt="Finished Product stock analytics" loading="lazy" />
+                <figcaption>Product stock analytics chart tracking monthly stock level trends.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/inventory/raw-material-analyics.png" alt="Raw Material stock analytics" loading="lazy" />
+                <figcaption>Raw Material stock analytics chart tracking monthly stock level trends.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Pricing Panel -->
+          <div class="showcase-panel" id="panel-pricing" role="tabpanel" aria-labelledby="tab-pricing">
+            <div class="screenshot-grid">
+              <figure class="screenshot-card">
+                <img src="assets/gear/pricing/index.png" alt="Price Recommendation worksheet" loading="lazy" />
+                <figcaption>Price recommendation worksheet displaying BOM costs, margin percentage, and recommended unit prices.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Finance Panel -->
+          <div class="showcase-panel" id="panel-finance" role="tabpanel" aria-labelledby="tab-finance">
+            <div class="screenshot-grid">
+              <figure class="screenshot-card">
+                <img src="assets/gear/finance/finance-index.png" alt="General Ledger dashboard" loading="lazy" />
+                <figcaption>General ledger view displaying cash flow totals, finance entries, and categories.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/finance/entry-detail.png" alt="Finance Entry detail page" loading="lazy" />
+                <figcaption>Finance entry detail page displaying transaction sources and creation details.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/finance/financial-analytics.png" alt="Financial Reporting dashboard" loading="lazy" />
+                <figcaption>Profit & Loss dashboard visualizing income and expense charts with PDF export controls.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Web Chatbot Panel -->
+          <div class="showcase-panel" id="panel-web-chatbot" role="tabpanel" aria-labelledby="tab-web-chatbot">
+            <div class="screenshot-grid">
+              <figure class="screenshot-card">
+                <img src="assets/gear/web-chatbot/chatbot.png" alt="Web Chatbot interface" loading="lazy" />
+                <figcaption>Web-based ERP chatbot interface in command mode, awaiting user commands.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/web-chatbot/chatbot-ai-mode-create-so.png" alt="Chatbot AI Mode template guide" loading="lazy" />
+                <figcaption>AI Mode response displaying the structured CREATE SO command template and format example.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/web-chatbot/ai-stateful-demo.png" alt="Chatbot stateful AI conversation" loading="lazy" />
+                <figcaption>Stateful AI conversation recommending products based on stock levels and drafting commands using retained context.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- WhatsApp Chatbot Panel -->
+          <div class="showcase-panel" id="panel-whatsapp-chatbot" role="tabpanel" aria-labelledby="tab-whatsapp-chatbot">
+            <div class="screenshot-grid">
+              <figure class="screenshot-card">
+                <img src="assets/gear/whatsapp-chatbot/command-mode.png" alt="WhatsApp Chatbot command mode" loading="lazy" />
+                <figcaption>WhatsApp chatbot command mode menu listing raw material stock query results.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/whatsapp-chatbot/command-mode-2.png" alt="WhatsApp Chatbot command guide" loading="lazy" />
+                <figcaption>WhatsApp chatbot displaying the required format details for a sales order command.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/whatsapp-chatbot/command-mode-3.png" alt="WhatsApp Chatbot order confirmation" loading="lazy" />
+                <figcaption>WhatsApp chatbot response confirming the creation of a sales order.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/whatsapp-chatbot/ai-mode.png" alt="WhatsApp Chatbot AI Mode session" loading="lazy" />
+                <figcaption>WhatsApp chatbot in AI Mode answering inventory questions.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/whatsapp-chatbot/ai-mode-2.png" alt="WhatsApp Chatbot range queries" loading="lazy" />
+                <figcaption>WhatsApp chatbot in AI Mode answering range-based stock queries.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/whatsapp-chatbot/unauthenticated-response.png" alt="WhatsApp Chatbot warning message" loading="lazy" />
+                <figcaption>WhatsApp chatbot warning response for unregistered phone numbers.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Auth & Admin Panel -->
+          <div class="showcase-panel" id="panel-admin" role="tabpanel" aria-labelledby="tab-admin">
+            <div class="screenshot-grid">
+              <figure class="screenshot-card">
+                <img src="assets/gear/auth/login.png" alt="Phone login page" loading="lazy" />
+                <figcaption>The login page prompting users for phone number and password.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/auth/account-index.png" alt="Accounts Index page" loading="lazy" />
+                <figcaption>Account directory registry displaying roles, phone numbers, and status filters (admin/owner only).</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/auth/my-account.png" alt="My Account profile page" loading="lazy" />
+                <figcaption>User profile page displaying phone number, role, permissions, and AccountEventLog history.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/auth/forget-password.png" alt="Password reset request page" loading="lazy" />
+                <figcaption>Password reset request form prompting users for a registered email address.</figcaption>
+              </figure>
+              <figure class="screenshot-card">
+                <img src="assets/gear/auth/forget-password-email-link.png" alt="Password reset email" loading="lazy" />
+                <figcaption>Verification email containing security reset tokens delivered via Resend API.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+        </div>
       </section>
 
       <!-- ── Use Case Diagram ─────────────────────────────────────── -->
@@ -233,10 +480,10 @@
             </p>
             <p>
               Sending <code>ai</code> switches the session to <strong>AI mode</strong>, where free-form
-              messages are forwarded to the Gemini LLM. The system prompt is assembled per-request from a
+              messages are combined with the session's temporary context and forwarded to Ollama Cloud. The system prompt is assembled per-request from a
               base ERP context plus module-specific context files for only the modules the user can access,
               with live DB snapshots injected when the user has the relevant permissions. The conversation
-              history (each exchange of user message and LLM reply) is stored as temporary context in the
+              history (each exchange of user message and model reply) is stored as temporary context in the
               session using a bounded data structure to prevent unbounded memory growth. Sending
               <code>exit</code> or idling for 30 minutes clears the session and returns to default mode.
             </p>
@@ -249,12 +496,10 @@
       <section class="cs-section" id="infrastructure">
         <h2>Infrastructure Architecture</h2>
         <p class="cs-body">
-          Production traffic enters through the VPS public IP after DNS resolution. Nginx listens on ports 80
-          and 443, handles HTTPS termination via Certbot, serves <code>/media/</code> and static files
-          (via Whitenoise) directly, and forwards Django requests to Gunicorn over a local Unix socket.
-           The Django application connects to a PostgreSQL database on <code>localhost:5432</code>.
-           Three external integrations are isolated at the application edge: Resend API for email,
-           Gemini API for AI responses, and Twilio for WhatsApp.
+          Production traffic is routed through the VPS public IP after DNS resolution. Nginx listens on ports 80 and 443, handles HTTPS termination, serves <code>/media/</code> and static aliases directly, and forwards Django requests to Gunicorn over a local Unix socket at <code>/var/www/gear/config.sock</code>. Certbot manages certificate renewal under <code>/etc/letsencrypt/</code>.
+        </p>
+        <p class="cs-body">
+          The Django application runs as modular ERP domains: auth, procurement, inventory, sales, finance, analytics, pricing, and chatbot. These modules share a PostgreSQL database on <code>localhost:5432</code>. External integrations are isolated at the edge: Resend API handles production email delivery, Ollama Cloud provides AI responses for chatbot free-form mode, and WhatsApp user messages enter through Twilio to call the Django webhook at <code>DOMAIN_NAME/chatbot/whatsapp/webhook/</code>.
         </p>
         <figure class="cs-figure">
           <img
@@ -284,7 +529,7 @@
           known commands (<code>stok jadi</code>, <code>create so</code>, <code>create po</code>, etc.),
           checks the user's permissions, and routes to the appropriate handler. Each handler calls the same
           service functions used by the web UI. Sending <code>ai</code> switches to <strong>LLM mode</strong>, where
-          free-form messages are passed to the Gemini API with a permission-scoped system prompt.
+          free-form messages are passed to Ollama Cloud with a permission-scoped system prompt.
           Sessions reset to command mode after 30 minutes of inactivity.
         </p>
         <figure class="cs-figure">
@@ -308,6 +553,181 @@
 
     </main>
 
+    <!-- Screenshot Lightbox Modal -->
+    <div id="screenshot-modal" class="screenshot-modal" aria-hidden="true" role="dialog">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <button class="modal-nav modal-nav-prev" aria-label="Previous image">
+        <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="modal-content">
+        <img id="modal-image" src="" alt="" />
+        <div id="modal-caption" class="modal-caption"></div>
+      </div>
+      <button class="modal-nav modal-nav-next" aria-label="Next image">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
     <script src="theme.js?v=1"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabBtns = document.querySelectorAll(".showcase-tab-btn");
+        const tabPanels = document.querySelectorAll(".showcase-panel");
+
+        function activateTab(targetId) {
+          // Deactivate all tabs
+          tabBtns.forEach(b => {
+            b.classList.remove("active");
+            b.setAttribute("aria-selected", "false");
+          });
+
+          // Hide all panels
+          tabPanels.forEach(p => {
+            p.classList.remove("active");
+          });
+
+          // Find specific button and panel
+          const btn = Array.from(tabBtns).find(b => b.getAttribute("aria-controls") === targetId);
+          const panel = document.getElementById(targetId);
+
+          if (btn && panel) {
+            btn.classList.add("active");
+            btn.setAttribute("aria-selected", "true");
+            panel.classList.add("active");
+          }
+        }
+
+        tabBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const targetId = btn.getAttribute("aria-controls");
+            activateTab(targetId);
+            try {
+              localStorage.setItem("gear-showcase-tab", targetId);
+            } catch {}
+          });
+        });
+
+        // Restore tab selection from localStorage
+        try {
+          const savedTab = localStorage.getItem("gear-showcase-tab");
+          if (savedTab && document.getElementById(savedTab)) {
+            activateTab(savedTab);
+          }
+        } catch {}
+
+        // Screenshot Lightbox Modal Logic
+        const modal = document.getElementById("screenshot-modal");
+        const modalImg = document.getElementById("modal-image");
+        const modalCaption = document.getElementById("modal-caption");
+        const closeBtn = document.querySelector(".modal-close");
+        const prevBtn = document.querySelector(".modal-nav-prev");
+        const nextBtn = document.querySelector(".modal-nav-next");
+
+        let currentImages = [];
+        let currentIndex = -1;
+
+        function openModal(imgSrc, altText, captionText, index, imagesArray) {
+          modalImg.src = imgSrc;
+          modalImg.alt = altText;
+          modalCaption.textContent = captionText;
+          currentIndex = index;
+          currentImages = imagesArray;
+          
+          if (currentImages.length <= 1) {
+            prevBtn.style.display = "none";
+            nextBtn.style.display = "none";
+          } else {
+            prevBtn.style.display = "flex";
+            nextBtn.style.display = "flex";
+          }
+
+          modal.classList.add("active");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+        }
+
+        function closeModal() {
+          modal.classList.remove("active");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("modal-open");
+          setTimeout(() => {
+            if (!modal.classList.contains("active")) {
+              modalImg.src = "";
+              modalImg.alt = "";
+              modalCaption.textContent = "";
+            }
+          }, 300);
+        }
+
+        function showNext() {
+          if (currentIndex === -1 || currentImages.length <= 1) return;
+          currentIndex = (currentIndex + 1) % currentImages.length;
+          const nextImg = currentImages[currentIndex];
+          const card = nextImg.closest(".screenshot-card");
+          const figcaption = card.querySelector("figcaption");
+          modalImg.src = nextImg.src;
+          modalImg.alt = nextImg.alt;
+          modalCaption.textContent = figcaption ? figcaption.textContent : "";
+        }
+
+        function showPrev() {
+          if (currentIndex === -1 || currentImages.length <= 1) return;
+          currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+          const prevImg = currentImages[currentIndex];
+          const card = prevImg.closest(".screenshot-card");
+          const figcaption = card.querySelector("figcaption");
+          modalImg.src = prevImg.src;
+          modalImg.alt = prevImg.alt;
+          modalCaption.textContent = figcaption ? figcaption.textContent : "";
+        }
+
+        // Bind clicks on screenshot card images
+        document.addEventListener("click", (e) => {
+          const img = e.target.closest(".screenshot-card img");
+          if (!img) return;
+
+          const panel = img.closest(".showcase-panel");
+          if (!panel) return;
+
+          const images = Array.from(panel.querySelectorAll(".screenshot-card img"));
+          const index = images.indexOf(img);
+          const card = img.closest(".screenshot-card");
+          const figcaption = card.querySelector("figcaption");
+          const captionText = figcaption ? figcaption.textContent : "";
+
+          openModal(img.src, img.alt, captionText, index, images);
+        });
+
+        // Close triggers
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal || e.target.classList.contains("modal-content")) {
+            closeModal();
+          }
+        });
+
+        // Navigation clicks
+        prevBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showPrev();
+        });
+        nextBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          showNext();
+        });
+
+        // Keyboard controls
+        document.addEventListener("keydown", (e) => {
+          if (!modal.classList.contains("active")) return;
+          if (e.key === "Escape") {
+            closeModal();
+          } else if (e.key === "ArrowRight") {
+            showNext();
+          } else if (e.key === "ArrowLeft") {
+            showPrev();
+          }
+        });
+      });
+    </script>
   </body>
 </html>

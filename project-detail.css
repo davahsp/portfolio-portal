@@ -1294,3 +1294,264 @@
     padding-top: 40px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   Interface Showcase — gear.html
+   ═══════════════════════════════════════════════════════════════ */
+
+.showcase-container {
+  margin-top: 32px;
+}
+
+.showcase-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+}
+
+.showcase-tab-btn {
+  font-family: inherit;
+  padding: 8px 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--soft);
+  border: 1px solid var(--card-line);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 250ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.showcase-tab-btn:hover {
+  color: var(--ink);
+  background: var(--nav-hover);
+  border-color: var(--line);
+}
+
+.showcase-tab-btn.active {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+:root[data-theme="dark"] .showcase-tab-btn.active {
+  color: #000;
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.showcase-panel {
+  display: none;
+}
+
+.showcase-panel.active {
+  display: block;
+  animation: showcaseFadeIn 450ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes showcaseFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.screenshot-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--line);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.screenshot-card:hover img {
+  transform: scale(1.02);
+}
+
+/* ── Screenshot Modal/Popup ─────────────────────────────────── */
+body.modal-open {
+  overflow: hidden;
+}
+
+.screenshot-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(10, 15, 30, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.screenshot-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 85vw;
+  max-height: 85vh;
+  margin: 0 auto;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease;
+}
+
+.screenshot-modal.active .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  object-fit: contain;
+  background: #111;
+}
+
+.modal-caption {
+  margin-top: 18px;
+  color: #f3f6fb;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.6;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+}
+
+/* Navigation & Close Buttons */
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1010;
+  transition: background 250ms ease, transform 250ms ease, border-color 250ms ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.08) rotate(90deg);
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1005;
+  transition: background 250ms ease, transform 250ms ease, border-color 250ms ease;
+}
+
+.modal-nav svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.modal-nav:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.modal-nav-prev {
+  left: 32px;
+}
+
+.modal-nav-prev:hover {
+  transform: translateY(-50%) scale(1.08) translateX(-2px);
+}
+
+.modal-nav-next {
+  right: 32px;
+}
+
+.modal-nav-next:hover {
+  transform: translateY(-50%) scale(1.08) translateX(2px);
+}
+
+/* Hide navigation on touch screens / small viewports or position differently */
+@media (max-width: 768px) {
+  .modal-nav {
+    width: 44px;
+    height: 44px;
+  }
+  .modal-nav-prev {
+    left: 12px;
+  }
+  .modal-nav-next {
+    right: 12px;
+  }
+  .modal-close {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
